@@ -122,8 +122,8 @@ class ASectionController extends AdminController
 
         $form->text('vi_name', __('Tên trang(Tiếng Việt)'));
         $form->text('en_name', __('Tên trang(Tiếng Anh)'));
-        $form->text('vi_description', __('Mô tả(Tiếng Việt)'));
-        $form->text('en_description', __('Mô tả(Tiếng Anh)'));
+        $form->ckeditor('vi_description', __('Mô tả(Tiếng Việt)'));
+        $form->ckeditor('en_description', __('Mô tả(Tiếng Anh)'));
         $form->image('image', __('Hình ảnh'));
         $form->number('order', __('Thứ tự'));
 

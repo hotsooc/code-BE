@@ -108,8 +108,8 @@ class ANewsCategoryController extends AdminController
 
         $form->text('vi_name', __('Tên loại tin tức(Tiếng Việt)'));
         $form->text('en_name', __('Tên loại tin tức(Tiếng Anh)'));
-        $form->text('vi_description', __('Mô tả loại tin tức(Tiếng Việt)'));
-        $form->text('en_description', __('Mô tả loại tin tức(Tiếng Anh)'));
+        $form->ckeditor('vi_description', __('Mô tả loại tin tức(Tiếng Việt)'));
+        $form->ckeditor('en_description', __('Mô tả loại tin tức(Tiếng Anh)'));
         $form->number('order', __('Thứ tự'));
 
         $form->select('status', __('Trạng thái'))->options($statusOptions)->default($statusDefault)->required();

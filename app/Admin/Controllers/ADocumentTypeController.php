@@ -29,8 +29,8 @@ class ADocumentTypeController extends AdminController
         $grid->column('id', __('ID'));
         $grid->column('vi_name', __('Tên loại tài liệu(Tiếng Việt)'));
         $grid->column('en_name', __('Tên loại tài liệu(Tiếng Anh)'));
-        $grid->column('vi_description', __('Mô tả loại tài liệu(Tiếng Việt)'));
-        $grid->column('en_description', __('Mô tả loại tài liệu(Tiếng Anh)'));
+        $grid->ckeditor('vi_description', __('Mô tả loại tài liệu(Tiếng Việt)'));
+        $grid->ckeditor('en_description', __('Mô tả loại tài liệu(Tiếng Anh)'));
         $grid->column('order', __('Thứ tự'));
 
         $grid->column('status', __('Trạng thái'))->display(function ($status) {

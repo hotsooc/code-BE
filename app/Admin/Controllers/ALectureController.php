@@ -125,8 +125,8 @@ class ALectureController extends AdminController
 
         $form->text('vi_title', __('Tiêu đề bài giảng(Tiếng Việt)'));
         $form->text('en_title', __('Tiêu đề bài giảng(Tiếng Anh)'));
-        $form->text('vi_description', __('Mô tả bài giảng(Tiếng Việt)'));
-        $form->text('en_description', __('Mô tả  bài giảng(Tiếng Anh)'));
+        $form->ckeditor('vi_description', __('Mô tả bài giảng(Tiếng Việt)'));
+        $form->ckeditor('en_description', __('Mô tả  bài giảng(Tiếng Anh)'));
         $form->text('vi_content', __('Nội dung  bài giảng(Tiếng Việt)'));
         $form->text('en_content', __('Nội dung  bài giảng(Tiếng Anh)'));
         $form->number('viewer', __('Số lượt xem'))->readonly()->value(0);

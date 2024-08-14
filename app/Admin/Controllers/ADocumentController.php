@@ -78,8 +78,8 @@ class ADocumentController extends AdminController
         $show->field('documentType.vi_name', __('Loại tài liệu'));
         $show->field('vi_title', __('Tiêu đề tài liệu(Tiếng Việt)'));
         $show->field('en_title', __('Tiêu đề tài liệu(Tiếng Anh)'));
-        $show->field('vi_description', __('Mô tả tài liệu(Tiếng Việt)'));
-        $show->field('en_description', __('Mô tả  tài liệu(Tiếng Anh)'));
+        $show->ckeditor('vi_description', __('Mô tả tài liệu(Tiếng Việt)'));
+        $show->ckeditor('en_description', __('Mô tả  tài liệu(Tiếng Anh)'));
         $show->field('vi_content', __('Nội dung  tài liệu(Tiếng Việt)'));
         $show->field('en_content', __('Nội dung  tài liệu(Tiếng Anh)'));
         $show->field('image', __('Hình ảnh'))->image();

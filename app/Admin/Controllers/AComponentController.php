@@ -121,8 +121,8 @@ class AComponentController extends AdminController
 
         $form->text('vi_title', __('Tiêu đề(Tiếng Việt)'));
         $form->text('en_title', __('Tiêu đề(Tiếng Anh)'));
-        $form->text('vi_content', __('Nội dung(Tiếng Việt)'));
-        $form->text('en_content', __('Nội dung(Tiếng Anh)'));
+        $form->ckeditor('vi_content', __('Nội dung(Tiếng Việt)'));
+        $form->ckeditor('en_content', __('Nội dung(Tiếng Anh)'));
         $form->image('image', __('Hình ảnh'));
         $form->number('order', __('Thứ tự'));
 
