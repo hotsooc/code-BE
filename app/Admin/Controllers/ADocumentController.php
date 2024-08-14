@@ -34,6 +34,7 @@ class ADocumentController extends AdminController
         $grid->column('en_description', __('Mô tả  tài liệu(Tiếng Anh)'));
         $grid->column('vi_content', __('Nội dung  tài liệu(Tiếng Việt)'));
         $grid->column('en_content', __('Nội dung  tài liệu(Tiếng Anh)'));
+        $grid->column('link_file', __('Link tài  liệu'));
         $grid->column('image', __('Hình ảnh'))->image();
         $grid->column('downloaded', __('Số lượt tải'));
 
@@ -78,10 +79,11 @@ class ADocumentController extends AdminController
         $show->field('documentType.vi_name', __('Loại tài liệu'));
         $show->field('vi_title', __('Tiêu đề tài liệu(Tiếng Việt)'));
         $show->field('en_title', __('Tiêu đề tài liệu(Tiếng Anh)'));
-        $show->ckeditor('vi_description', __('Mô tả tài liệu(Tiếng Việt)'));
-        $show->ckeditor('en_description', __('Mô tả  tài liệu(Tiếng Anh)'));
+        $show->field('vi_description', __('Mô tả tài liệu(Tiếng Việt)'));
+        $show->field('en_description', __('Mô tả  tài liệu(Tiếng Anh)'));
         $show->field('vi_content', __('Nội dung  tài liệu(Tiếng Việt)'));
         $show->field('en_content', __('Nội dung  tài liệu(Tiếng Anh)'));
+        $show->field('link_file', __('Link tài  liệu'));
         $show->field('image', __('Hình ảnh'))->image();
         $show->field('downloaded', __('Số lượt tải'));
 
@@ -130,6 +132,7 @@ class ADocumentController extends AdminController
         $form->text('en_description', __('Mô tả  tài liệu(Tiếng Anh)'));
         $form->text('vi_content', __('Nội dung  tài liệu(Tiếng Việt)'));
         $form->text('en_content', __('Nội dung  tài liệu(Tiếng Anh)'));
+        $form->text('link_file', __('Link tài  liệu'));
         $form->number('downloaded', __('Số lượt tải'))->readonly()->value(0);
         $form->image('image', __('Hình ảnh'));
 

@@ -33,6 +33,7 @@ class ALectureController extends AdminController
         $grid->column('en_description', __('Mô tả  bài giảng(Tiếng Anh)'));
         $grid->column('vi_content', __('Nội dung  bài giảng(Tiếng Việt)'));
         $grid->column('en_content', __('Nội dung  bài giảng(Tiếng Anh)'));
+        $grid->column('associate_link', __('Link liên kết'));
         $grid->column('image', __('Hình ảnh'))->image();
         $grid->column('viewer', __('Số lượt xem'));
 
@@ -81,6 +82,7 @@ class ALectureController extends AdminController
         $show->field('en_description', __('Mô tả  bài giảng(Tiếng Anh)'));
         $show->field('vi_content', __('Nội dung  bài giảng(Tiếng Việt)'));
         $show->field('en_content', __('Nội dung  bài giảng(Tiếng Anh)'));
+        $show->field('associate_link', __('Link liên kết'));
         $show->field('image', __('Hình ảnh'))->image();
         $show->field('viewer', __('Số lượt xem'));
 
@@ -127,8 +129,9 @@ class ALectureController extends AdminController
         $form->text('en_title', __('Tiêu đề bài giảng(Tiếng Anh)'));
         $form->ckeditor('vi_description', __('Mô tả bài giảng(Tiếng Việt)'));
         $form->ckeditor('en_description', __('Mô tả  bài giảng(Tiếng Anh)'));
-        $form->text('vi_content', __('Nội dung  bài giảng(Tiếng Việt)'));
-        $form->text('en_content', __('Nội dung  bài giảng(Tiếng Anh)'));
+        $form->ckeditor('vi_content', __('Nội dung  bài giảng(Tiếng Việt)'));
+        $form->ckeditor('en_content', __('Nội dung  bài giảng(Tiếng Anh)'));
+        $form->text('associate_link', __('Link liên kết'));
         $form->number('viewer', __('Số lượt xem'))->readonly()->value(0);
         $form->image('image', __('Hình ảnh'));
 

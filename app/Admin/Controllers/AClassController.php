@@ -111,8 +111,8 @@ class AClassController extends AdminController
 
         $form->text('vi_name', __('Tên lớp học(Tiếng Việt)'));
         $form->text('en_name', __('Tên lớp học(Tiếng Anh)'));
-        $form->text('vi_description', __('Mô tả lớp học(Tiếng Việt)'));
-        $form->text('en_description', __('Mô tả lớp học(Tiếng Anh)'));
+        $form->ckeditor('vi_description', __('Mô tả lớp học(Tiếng Việt)'));
+        $form->ckeditor('en_description', __('Mô tả lớp học(Tiếng Anh)'));
         $form->image('image', __('Hình ảnh'));
         $form->number('order', __('Thứ tự'));
 

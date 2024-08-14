@@ -129,8 +129,8 @@ class ANewsController extends AdminController
         $form->text('en_title', __('Tiêu đề tin tức(Tiếng Anh)'));
         $form->ckeditor('vi_description', __('Mô tả tin tức(Tiếng Việt)'));
         $form->ckeditor('en_description', __('Mô tả  tin tức(Tiếng Anh)'));
-        $form->text('vi_content', __('Nội dung  tin tức(Tiếng Việt)'));
-        $form->text('en_content', __('Nội dung  tin tức(Tiếng Anh)'));
+        $form->ckeditor('vi_content', __('Nội dung  tin tức(Tiếng Việt)'));
+        $form->ckeditor('en_content', __('Nội dung  tin tức(Tiếng Anh)'));
         $form->image('image', __('Hình ảnh'));
         $form->hidden('slug', __('Đường dẫn'));
         $form->number('read_time', __('Thời gian đọc (phút)'));
