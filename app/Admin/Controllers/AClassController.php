@@ -30,6 +30,8 @@ class AClassController extends AdminController
         $grid->column('en_name', __('Tên lớp học(Tiếng Anh)'));
         $grid->column('vi_description', __('Mô tả lớp học(Tiếng Việt)'));
         $grid->column('en_description', __('Mô tả lớp học(Tiếng Anh)'));
+        $grid->column('vi_content', __('Nội dung lớp học(Tiếng Việt)'));
+        $grid->column('en_content', __('Nội dung lớp học(Tiếng Anh)'));
         $grid->column('image', __('Hình ảnh'))->image();
         $grid->column('order', __('Thứ tự'));
 
@@ -44,7 +46,7 @@ class AClassController extends AdminController
             return ConstantHelper::dateFormatter($updatedAt);
         });
         $grid->column('updated_by', __('Người cập nhật'));
-        $grid->model()->orderBy('created_at', 'desc');
+        $grid->model()->orderBy('order', 'asc');
         $grid->fixColumns(0, -1);
 
         $grid->filter(function (Grid\Filter $filter) {
@@ -76,6 +78,8 @@ class AClassController extends AdminController
         $show->field('en_name', __('Tên lớp học(Tiếng Anh)'));
         $show->field('vi_description', __('Mô tả lớp học(Tiếng Việt)'));
         $show->field('en_description', __('Mô tả lớp học(Tiếng Anh)'));
+        $show->field('vi_content', __('Nội dung lớp học(Tiếng Việt)'));
+        $show->field('en_content', __('Nội dung lớp học(Tiếng Anh)'));
         $show->field('image', __('Hình ảnh'))->image();
         $show->field('order', __('Thứ tự'));
 
@@ -113,6 +117,8 @@ class AClassController extends AdminController
         $form->text('en_name', __('Tên lớp học(Tiếng Anh)'));
         $form->ckeditor('vi_description', __('Mô tả lớp học(Tiếng Việt)'));
         $form->ckeditor('en_description', __('Mô tả lớp học(Tiếng Anh)'));
+        $form->ckeditor('vi_content', __('Nội dung lớp học(Tiếng Việt)'));
+        $form->ckeditor('en_content', __('Nội dung lớp học(Tiếng Anh)'));
         $form->image('image', __('Hình ảnh'));
         $form->number('order', __('Thứ tự'));
 
