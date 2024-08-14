@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PageModel;
+use App\Traits\ResponseFormattingTrait;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    use ResponseFormattingTrait;
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
-    public function index()
+    public function index(): array
     {
-        //
+        $data = PageModel::all();
+        return $this->_formatBaseResponse(200, $data, 'Success');
     }
 
     /**

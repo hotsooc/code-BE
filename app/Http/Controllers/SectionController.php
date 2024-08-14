@@ -2,10 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\ResponseFormattingTrait;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
 {
+    use ResponseFormattingTrait;
+
+    protected $sectionValidator;
+
+    /**
+     * @param $sectionValidator
+     */
+    public function __construct(MembershipValidator $sectionValidator)
+    {
+        $this->sectionValidator = $sectionValidator;
+    }
     /**
      * Display a listing of the resource.
      *
