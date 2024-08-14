@@ -32,6 +32,12 @@ class AComponentController extends AdminController
         $grid->column('vi_content', __('Nội dung(Tiếng Việt)'));
         $grid->column('en_content', __('Nội dung(Tiếng Anh)'));
         $grid->column('image', __('Hình ảnh'))->image();
+        $grid->column('image_2', __('Hình ảnh 2'))->image();
+        $grid->column('image_3', __('Hình ảnh 3'))->image();
+        $grid->column('image_4', __('Hình ảnh 4'))->image();
+        $grid->column('image_5', __('Hình ảnh 5'))->image();
+        $grid->column('image_6', __('Hình ảnh 6'))->image();
+        $grid->column('image_7', __('Hình ảnh 7'))->image();
         $grid->column('order', __('Thứ tự'));
 
         $grid->column('status', __('Trạng thái'))->display(function ($status) {
@@ -78,6 +84,12 @@ class AComponentController extends AdminController
         $show->field('vi_content', __('Nội dung(Tiếng Việt)'));
         $show->field('en_content', __('Nội dung(Tiếng Anh)'));
         $show->field('image', __('Hình ảnh'))->image();
+        $show->field('image_2', __('Hình ảnh 2'))->image();
+        $show->field('image_3', __('Hình ảnh 3'))->image();
+        $show->field('image_4', __('Hình ảnh 4'))->image();
+        $show->field('image_5', __('Hình ảnh 5'))->image();
+        $show->field('image_6', __('Hình ảnh 6'))->image();
+        $show->field('image_7', __('Hình ảnh 7'))->image();
         $show->field('order', __('Thứ tự'));
 
         $show->field('status', __('Trạng thái'))->as(function ($status) {
@@ -124,6 +136,12 @@ class AComponentController extends AdminController
         $form->ckeditor('vi_content', __('Nội dung(Tiếng Việt)'));
         $form->ckeditor('en_content', __('Nội dung(Tiếng Anh)'));
         $form->image('image', __('Hình ảnh'));
+        $form->image('image_2', __('Hình ảnh 2'));
+        $form->image('image_3', __('Hình ảnh 3'));
+        $form->image('image_4', __('Hình ảnh 4'));
+        $form->image('image_5', __('Hình ảnh 5'));
+        $form->image('image_6', __('Hình ảnh 6'));
+        $form->image('image_7', __('Hình ảnh 7'));
         $form->number('order', __('Thứ tự'));
 
         $form->select('status', __('Trạng thái'))->options($statusOptions)->default($statusDefault)->required();
