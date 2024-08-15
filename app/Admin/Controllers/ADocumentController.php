@@ -37,6 +37,7 @@ class ADocumentController extends AdminController
         $grid->column('link_file', __('Link tài  liệu'));
         $grid->column('image', __('Hình ảnh'))->image();
         $grid->column('downloaded', __('Số lượt tải'));
+        $grid->column('order', __('Thứ tự'));
 
         $grid->column('status', __('Trạng thái'))->display(function ($status) {
             return UtilsCommonHelper::statusFormatter($status, "Core", 'Status', "grid");
@@ -49,7 +50,7 @@ class ADocumentController extends AdminController
             return ConstantHelper::dateFormatter($updatedAt);
         });
         $grid->column('updated_by', __('Người cập nhật'));
-        $grid->model()->orderBy('created_at', 'desc');
+        $grid->model()->orderBy('order', 'asc');
         $grid->fixColumns(0, -1);
 
         $grid->filter(function (Grid\Filter $filter) {
@@ -86,6 +87,7 @@ class ADocumentController extends AdminController
         $show->field('link_file', __('Link tài  liệu'))->file();
         $show->field('image', __('Hình ảnh'))->image();
         $show->field('downloaded', __('Số lượt tải'));
+        $show->field('order', __('Thứ tự'));
 
         $show->field('status', __('Trạng thái'))->as(function ($status) {
             return UtilsCommonHelper::statusFormatter($status, "Core", 'Status', null);
@@ -135,6 +137,7 @@ class ADocumentController extends AdminController
         $form->file('link_file', __('Link tài  liệu'));
         $form->number('downloaded', __('Số lượt tải'))->readonly()->value(0);
         $form->image('image', __('Hình ảnh'));
+        $form->number('order', __('Thứ tự'));
 
         $form->select('status', __('Trạng thái'))->options($statusOptions)->default($statusDefault)->required();
 

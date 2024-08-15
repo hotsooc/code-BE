@@ -44,7 +44,6 @@ class ClassController extends Controller
 
             $columns = ['ba.id', 'ba.image', 'ba.created_at', 'ba.updated_at', 'ba.created_by', 'ba.updated_by', 'ba.order', 'ba.status'];
             if ($language === 'vi') {
-//                $columns[] = ['ba.vi_name as name'];
                 $columns = array_merge($columns, ['ba.vi_name as name', 'ba.vi_description']);
             } else {
                 $columns = array_merge($columns, ['ba.en_name as name', 'ba.en_description']);
@@ -111,7 +110,7 @@ class ClassController extends Controller
 
             $language = $dataInput['language'];
             $id = $dataInput['id'];
-            error_log("id:" . $id);
+
             $columns = ['ba.id', 'ba.image', 'ba.created_at', 'ba.updated_at', 'ba.created_by', 'ba.updated_by', 'ba.order', 'ba.status'];
             if ($language === 'vi') {
                 $columns = array_merge($columns, ['ba.vi_name as name', 'ba.vi_description as description', 'ba.vi_content as content']);

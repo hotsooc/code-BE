@@ -45,7 +45,7 @@ class ALectureTypeController extends AdminController
             return ConstantHelper::dateFormatter($updatedAt);
         });
         $grid->column('updated_by', __('Người cập nhật'));
-        $grid->model()->orderBy('created_at', 'desc');
+        $grid->model()->orderBy('order', 'asc');
         $grid->fixColumns(0, -1);
 
         $grid->filter(function (Grid\Filter $filter) {

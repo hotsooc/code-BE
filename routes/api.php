@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\DocumentTypeController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\LectureController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\LectureTypeController;
 use App\Http\Controllers\PageController;
@@ -49,3 +51,9 @@ Route::post('document-type/all', [DocumentTypeController::class, 'index']);
 
 //lecture type
 Route::post('lecture-type/all', [LectureTypeController::class, 'index']);
+
+//document
+Route::post('document/get-by-document-type', [DocumentController::class, 'getByDocumentType']);
+
+//lecture
+Route::post('lecture/get-by-lecture-type', [LectureController::class, 'getByLectureType']);

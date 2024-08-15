@@ -43,7 +43,7 @@ class APageController extends AdminController
             return ConstantHelper::dateFormatter($updatedAt);
         });
         $grid->column('updated_by', __('Người cập nhật'));
-        $grid->model()->orderBy('created_at', 'desc');
+        $grid->model()->orderBy('order', 'asc');
         $grid->fixColumns(0, -1);
 
         $grid->filter(function (Grid\Filter $filter) {
@@ -111,7 +111,7 @@ class APageController extends AdminController
         $form->text('en_name', __('Tên trang(Tiếng Anh)'));
         $form->text('url', __('Đường dẫn'));
         $form->text('seo', __('SEO'));
-        $form->text('order', __('Thứ tự'));
+        $form->number('order', __('Thứ tự'));
 
         $form->select('status', __('Trạng thái'))->options($statusOptions)->default($statusDefault)->required();
 
