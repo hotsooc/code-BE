@@ -8,7 +8,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class ALecturerController extends AdminController
+class AGCLecturerController extends AdminController
 {
     /**
      * Title for current resource.
@@ -28,7 +28,7 @@ class ALecturerController extends AdminController
         $grid->column('id', __('ID'));
         $grid->column('name', __('Tên giảng viên'));
         $grid->column('avatar', __('Avatar'))->image();
-//        $grid->column('address', __('Địa chỉ'));
+        $grid->column('address', __('Địa chỉ'));
         $grid->column('vi_title', __('Tiêu đề (Tiếng Việt)'));
         $grid->column('en_title', __('Tiêu đề (Tiếng Anh)'));
         $grid->column('vi_content', __('Nội dung (Tiếng Việt)'));
@@ -76,7 +76,7 @@ class ALecturerController extends AdminController
         $show->field('id', __('ID'));
         $show->field('name', __('Tên giảng viên'));
         $show->field('avatar', __('Avatar'))->image();
-//        $show->field('address', __('Địa chỉ'));
+        $show->field('address', __('Địa chỉ'));
         $show->field('vi_title', __('Tiêu đề (Tiếng Việt)'));
         $show->field('en_title', __('Tiêu đề (Tiếng Anh)'));
         $show->field('vi_content', __('Nội dung (Tiếng Việt)'));
@@ -115,7 +115,7 @@ class ALecturerController extends AdminController
 
         $form->text('name', __('Tên giảng viên'));
         $form->image('avatar', __('Avatar'));
-//        $form->text('address', __('Địa chỉ'));
+        $form->text('address', __('Địa chỉ'));
         $form->text('vi_title', __('Tiêu đề (Tiếng Việt)'));
         $form->text('en_title', __('Tiêu đề (Tiếng Anh)'));
         $form->ckeditor('vi_content', __('Nội dung (Tiếng Việt)'));

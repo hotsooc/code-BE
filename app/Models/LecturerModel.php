@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class LecturerModel extends Model
 {
-    protected $table = 'feedback';
+    protected $table = 'lecturer';
 
     protected $hidden = [
     ];
