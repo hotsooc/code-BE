@@ -54,6 +54,7 @@ Route::post('news-category/all', [NewsCategoryController::class, 'index']);
 //news categories
 Route::post('news/get-by-category', [NewsController::class, 'getByCategory']);
 Route::post('news/get-by-slug', [NewsController::class, 'getBySlug']);
+Route::post('news/get-related', [NewsController::class, 'getRelatedNews']);
 
 //document type
 Route::post('document-type/all', [DocumentTypeController::class, 'index']);

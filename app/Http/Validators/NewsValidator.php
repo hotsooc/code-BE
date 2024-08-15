@@ -27,4 +27,15 @@ class NewsValidator
 
         return Validator::make($requestData, $commonRules);
     }
+    public function validateGetRelatedNews($requestData): \Illuminate\Contracts\Validation\Validator
+    {
+        $commonRules = [
+            'language' => 'required|string|in:en,vi',
+            'news_category_id' => 'required|integer|exists:news_category,id',
+            'id' => 'required|integer|exists:news,id',
+            'size' => 'nullable|integer|min:1',
+        ];
+
+        return Validator::make($requestData, $commonRules);
+    }
 }

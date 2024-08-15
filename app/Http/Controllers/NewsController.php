@@ -113,6 +113,45 @@ class NewsController extends Controller
         }
     }
 
+    public function getRelatedNews(Request $request): array
+    {
+        try {
+            $dataInput = $request->all();
+
+            $validator = $this->newsValidator->validateGetRelatedNews($dataInput);
+            if ($validator->fails()) {
+                throw new ValidationException($validator);
+            }
+
+            $language = $dataInput['language'];
+            $newsCategoryId = $dataInput['news_category_id'];
+            $size = $dataInput['size'] ?? 3;
+            $id = $dataInput['id'];
+
+            $columns = ['ba.id', 'ba.news_category_id', 'ba.slug', 'ba.read_time', 'ba.image', 'ba.order', 'ba.status', 'ba.created_at', 'ba.updated_at', 'ba.created_by', 'ba.updated_by'];
+            if ($language === 'vi') {
+                $columns = array_merge($columns, ['ba.vi_title as title', 'ba.vi_description as description']);
+            } else {
+                $columns = array_merge($columns, ['ba.en_title as title', 'ba.en_description as description']);
+            }
+
+            $result = DB::table('news as ba')
+                ->select($columns)
+                ->where('ba.status', '=', ConstantHelper::STATUS_ACTIVE)
+                ->where('ba.news_category_id', '=', $newsCategoryId)
+                ->where('ba.id', '!=', $id)
+                ->orderBy('order', 'asc')
+                ->limit($size)
+                ->get();
+
+            return $this->_formatBaseResponse(200, $result, 'Success');
+
+        } catch (ValidationException $e) {
+            $errors = $e->validator->errors()->toArray();
+            return $this->_formatBaseResponse(400, $errors, 'Failed');
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
