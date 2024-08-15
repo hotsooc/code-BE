@@ -9,6 +9,7 @@ use App\Http\Controllers\LectureController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\LectureTypeController;
 use App\Http\Controllers\NewsCategoryController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SectionController;
 use Illuminate\Http\Request;
@@ -49,6 +50,10 @@ Route::post('lecturer/all', [LecturerController::class, 'index']);
 
 //news categories
 Route::post('news-category/all', [NewsCategoryController::class, 'index']);
+
+//news categories
+Route::post('news/get-by-category', [NewsController::class, 'getByCategory']);
+Route::post('news/get-by-slug', [NewsController::class, 'getBySlug']);
 
 //document type
 Route::post('document-type/all', [DocumentTypeController::class, 'index']);
