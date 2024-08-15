@@ -2,11 +2,12 @@
 
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\DocumentTypeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\LectureTypeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SectionController;
-use App\Models\PageModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +43,9 @@ Route::post('feedback/all', [FeedbackController::class, 'index']);
 
 //lecturer
 Route::post('lecturer/all', [LecturerController::class, 'index']);
+
+//document type
+Route::post('document-type/all', [DocumentTypeController::class, 'index']);
+
+//lecture type
+Route::post('lecture-type/all', [LectureTypeController::class, 'index']);
