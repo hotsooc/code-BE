@@ -93,6 +93,7 @@ class DocumentController extends Controller
                 ->orderBy('order', 'asc')
                 ->get();
 
+
             return $this->_formatBaseResponse(200, $result, 'Success');
 
         } catch (ValidationException $e) {

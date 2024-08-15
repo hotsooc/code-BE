@@ -6,6 +6,7 @@ use App\Admin\Controllers\ConstantHelper;
 use App\Http\Validators\DocumentValidator;
 use App\Http\Validators\LectureValidator;
 use App\Http\Validators\SectionValidator;
+use App\Models\LecturerModel;
 use App\Traits\ResponseFormattingTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -86,6 +87,12 @@ class LectureController extends Controller
             } else {
                 $columns = array_merge($columns, ['ba.en_title as title', 'ba.en_description as description','ba.en_content as content']);
             }
+
+            //update viewer
+            $lecture=LecturerModel::findOrFail($lectureId);
+            ++$lecture->viewer;
+            $lecture->update();
+
 
             $result = DB::table('lecture as ba')
                 ->select($columns)
