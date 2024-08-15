@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SectionController;
 use App\Models\PageModel;
@@ -33,3 +34,6 @@ Route::post('component/get-by-section', [ComponentController::class, 'index']);
 
 //class
 Route::post('class/high-light', [ClassController::class, 'getHighlightClasses']);
+
+//feedback
+Route::post('feedback/all', [FeedbackController::class, 'index']);
