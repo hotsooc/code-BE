@@ -54,6 +54,8 @@ Route::post('lecture-type/all', [LectureTypeController::class, 'index']);
 
 //document
 Route::post('document/get-by-document-type', [DocumentController::class, 'getByDocumentType']);
+Route::post('document/get-by-id', [DocumentController::class, 'getById']);
 
 //lecture
 Route::post('lecture/get-by-lecture-type', [LectureController::class, 'getByLectureType']);
+Route::post('lecture/get-by-id', [LectureController::class, 'getById']);

@@ -17,4 +17,13 @@ class LectureValidator
 
         return Validator::make($requestData, $commonRules);
     }
+    public function validateGetLectureById($requestData): \Illuminate\Contracts\Validation\Validator
+    {
+        $commonRules = [
+            'language' => 'required|string|in:en,vi',
+            'id' => 'required|integer|exists:lecture,id'
+        ];
+
+        return Validator::make($requestData, $commonRules);
+    }
 }

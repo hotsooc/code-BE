@@ -17,4 +17,14 @@ class DocumentValidator
 
         return Validator::make($requestData, $commonRules);
     }
+
+
+    public function validateGetDocumentById($requestData): \Illuminate\Contracts\Validation\Validator
+    {
+        $commonRules = [
+            'language' => 'required|string|in:en,vi',
+            'id' => 'required|integer|exists:document,id'
+        ];
+        return Validator::make($requestData, $commonRules);
+    }
 }

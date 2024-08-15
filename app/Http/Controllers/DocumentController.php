@@ -66,6 +66,41 @@ class DocumentController extends Controller
         }
     }
 
+    public function getById(Request $request): array
+    {
+        try {
+            $dataInput = $request->all();
+
+            $validator = $this->documentValidator->validateGetDocumentById($dataInput);
+            if ($validator->fails()) {
+                throw new ValidationException($validator);
+            }
+
+            $language = $dataInput['language'];
+            $documentId = $dataInput['id'];
+
+            $columns = ['ba.id', 'ba.document_type_id','ba.link_file','ba.downloaded','ba.image', 'ba.created_at', 'ba.updated_at', 'ba.created_by', 'ba.updated_by', 'ba.order', 'ba.status'];
+            if ($language === 'vi') {
+                $columns = array_merge($columns, ['ba.vi_title as title', 'ba.vi_description as description','ba.vi_content as content' ]);
+            } else {
+                $columns = array_merge($columns, ['ba.en_title as title', 'ba.en_description as description','ba.en_content as content']);
+            }
+
+            $result = DB::table('document as ba')
+                ->select($columns)
+                ->where('ba.status', '=', ConstantHelper::STATUS_ACTIVE)
+                ->where('ba.id', '=', $documentId)
+                ->orderBy('order', 'asc')
+                ->get();
+
+            return $this->_formatBaseResponse(200, $result, 'Success');
+
+        } catch (ValidationException $e) {
+            $errors = $e->validator->errors()->toArray();
+            return $this->_formatBaseResponse(400, $errors, 'Failed');
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
