@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SectionController;
 use App\Models\PageModel;
@@ -25,3 +26,6 @@ Route::get('page/all', [PageController::class, 'index']);
 
 //section
 Route::post('section/get-by-page', [SectionController::class, 'index']);
+
+//component
+Route::post('component/get-by-section', [ComponentController::class, 'index']);
