@@ -35,6 +35,7 @@ Route::post('component/get-by-section', [ComponentController::class, 'index']);
 
 //class
 Route::post('class/high-light', [ClassController::class, 'getHighlightClasses']);
+Route::post('class/get-by-id', [ClassController::class, 'getById']);
 
 //feedback
 Route::post('feedback/all', [FeedbackController::class, 'index']);

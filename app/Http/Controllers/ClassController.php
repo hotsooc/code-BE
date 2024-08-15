@@ -80,9 +80,9 @@ class ClassController extends Controller
 
             $columns = ['ba.id', 'ba.image', 'ba.created_at', 'ba.updated_at', 'ba.created_by', 'ba.updated_by', 'ba.order', 'ba.status'];
             if ($language === 'vi') {
-                $columns = array_merge($columns, ['ba.vi_name as name', 'ba.vi_description as description','ba.vi_content as content']);
+                $columns = array_merge($columns, ['ba.vi_name as name', 'ba.vi_description as description', 'ba.vi_content as content']);
             } else {
-                $columns = array_merge($columns, ['ba.en_name as name', 'ba.en_description as description','ba.en_content as content']);
+                $columns = array_merge($columns, ['ba.en_name as name', 'ba.en_description as description', 'ba.en_content as content']);
             }
 
             $result = DB::table('class as ba')
@@ -90,6 +90,40 @@ class ClassController extends Controller
                 ->where('ba.status', '=', ConstantHelper::STATUS_ACTIVE)
                 ->orderBy('order', 'asc')
                 ->paginate($size, ['*'], 'page', $page);
+
+            return $this->_formatBaseResponse(200, $result, 'Success');
+
+        } catch (ValidationException $e) {
+            $errors = $e->validator->errors()->toArray();
+            return $this->_formatBaseResponse(400, $errors, 'Failed');
+        }
+    }
+
+    public function getById(Request $request): array
+    {
+        try {
+            $dataInput = $request->all();
+
+            $validator = $this->classValidator->validateGetClassById($dataInput);
+            if ($validator->fails()) {
+                throw new ValidationException($validator);
+            }
+
+            $language = $dataInput['language'];
+            $id = $dataInput['id'];
+            error_log("id:" . $id);
+            $columns = ['ba.id', 'ba.image', 'ba.created_at', 'ba.updated_at', 'ba.created_by', 'ba.updated_by', 'ba.order', 'ba.status'];
+            if ($language === 'vi') {
+                $columns = array_merge($columns, ['ba.vi_name as name', 'ba.vi_description as description', 'ba.vi_content as content']);
+            } else {
+                $columns = array_merge($columns, ['ba.en_name as name', 'ba.en_description as description', 'ba.en_content as content']);
+            }
+
+            $result = DB::table('class as ba')
+                ->select($columns)
+                ->where('ba.status', '=', ConstantHelper::STATUS_ACTIVE)
+                ->where('ba.id', '=', $id)
+                ->get();
 
             return $this->_formatBaseResponse(200, $result, 'Success');
 

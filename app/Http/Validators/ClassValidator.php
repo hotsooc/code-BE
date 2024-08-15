@@ -16,4 +16,13 @@ class ClassValidator
 
         return Validator::make($requestData, $commonRules);
     }
+    public function validateGetClassById($requestData): \Illuminate\Contracts\Validation\Validator
+    {
+        $commonRules = [
+            'language' => 'required|string|in:en,vi',
+            'id' => 'required|integer|exists:class,id',
+        ];
+
+        return Validator::make($requestData, $commonRules);
+    }
 }

@@ -50,8 +50,6 @@ class LecturerController extends Controller
                 $columns = array_merge($columns, ['ba.en_title as title','ba.en_content as content']);
             }
 
-            error_log(json_encode($columns));
-
             $result = DB::table('lecturer as ba')
                 ->select($columns)
                 ->where('ba.status', '=', ConstantHelper::STATUS_ACTIVE)
