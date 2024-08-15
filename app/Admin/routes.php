@@ -23,6 +23,8 @@ Route::group([
     $router->resource('/lecture', ALectureController::class);
     $router->resource('/news-category', ANewsCategoryController::class);
     $router->resource('/news', ANewsController::class);
+    $router->resource('/feedback', AFeedbackController::class);
+    $router->resource('/lecturer', ALecturerController::class);
 
 
 });
