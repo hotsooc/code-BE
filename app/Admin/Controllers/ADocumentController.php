@@ -83,7 +83,7 @@ class ADocumentController extends AdminController
         $show->field('en_description', __('Mô tả  tài liệu(Tiếng Anh)'));
         $show->field('vi_content', __('Nội dung  tài liệu(Tiếng Việt)'));
         $show->field('en_content', __('Nội dung  tài liệu(Tiếng Anh)'));
-        $show->field('link_file', __('Link tài  liệu'));
+        $show->field('link_file', __('Link tài  liệu'))->file();
         $show->field('image', __('Hình ảnh'))->image();
         $show->field('downloaded', __('Số lượt tải'));
 
@@ -132,7 +132,7 @@ class ADocumentController extends AdminController
         $form->text('en_description', __('Mô tả  tài liệu(Tiếng Anh)'));
         $form->text('vi_content', __('Nội dung  tài liệu(Tiếng Việt)'));
         $form->text('en_content', __('Nội dung  tài liệu(Tiếng Anh)'));
-        $form->text('link_file', __('Link tài  liệu'));
+        $form->file('link_file', __('Link tài  liệu'));
         $form->number('downloaded', __('Số lượt tải'))->readonly()->value(0);
         $form->image('image', __('Hình ảnh'));
 
