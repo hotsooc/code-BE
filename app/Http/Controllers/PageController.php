@@ -54,6 +54,7 @@ class PageController extends Controller
             $result = DB::table('page as ba')
                 ->select($columns)
                 ->where('ba.status', '=', ConstantHelper::STATUS_ACTIVE)
+                ->orderBy('order', 'asc')
                 ->get();
 
             return $this->_formatBaseResponse(200, $result, 'Success');

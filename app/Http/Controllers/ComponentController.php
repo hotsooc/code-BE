@@ -43,15 +43,16 @@ class ComponentController extends Controller
 
             $columns = ['ba.id','ba.image','ba.image_2','ba.image_3','ba.image_4','ba.image_5','ba.image_6','ba.image_7','ba.section_id', 'ba.image', 'ba.created_at', 'ba.updated_at', 'ba.created_by', 'ba.updated_by', 'ba.order', 'ba.status'];
             if ($language === 'vi') {
-                $columns = array_merge($columns, ['ba.vi_title as title', 'ba.vi_content']);
+                $columns = array_merge($columns, ['ba.vi_title as title', 'ba.vi_content as content']);
             } else {
-                $columns = array_merge($columns, ['ba.en_title as title', 'ba.en_content']);
+                $columns = array_merge($columns, ['ba.en_title as title', 'ba.en_content as content']);
             }
 
             $result = DB::table('component as ba')
                 ->select($columns)
                 ->where('ba.status', '=', ConstantHelper::STATUS_ACTIVE)
                 ->where('ba.section_id', '=', $sectionId)
+                ->orderBy('order', 'asc')
                 ->get();
 
             return $this->_formatBaseResponse(200, $result, 'Success');

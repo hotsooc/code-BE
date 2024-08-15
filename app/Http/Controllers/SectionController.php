@@ -53,6 +53,7 @@ class SectionController extends Controller
                 ->select($columns)
                 ->where('ba.status', '=', ConstantHelper::STATUS_ACTIVE)
                 ->where('ba.page_id', '=', $pageId)
+                ->orderBy('order', 'asc')
                 ->get();
 
             return $this->_formatBaseResponse(200, $result, 'Success');
