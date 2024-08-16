@@ -132,6 +132,43 @@ class ClassController extends Controller
         }
     }
 
+
+    public function getShortAllClasses(Request $request): array
+    {
+        try {
+            $dataInput = $request->all();
+
+            $validator = $this->classValidator->validateGetAllShortClass($dataInput);
+            if ($validator->fails()) {
+                throw new ValidationException($validator);
+            }
+
+            $language = $dataInput['language'];
+//            $size = $dataInput['size'] ?? 10;
+//            $page = $dataInput['page'] ?? 1;
+
+            $columns = ['ba.id', 'ba.order'];
+            if ($language === 'vi') {
+                $columns = array_merge($columns, ['ba.vi_name as name']);
+            } else {
+                $columns = array_merge($columns, ['ba.en_name as name']);
+            }
+
+            $result = DB::table('class as ba')
+                ->select($columns)
+                ->where('ba.status', '=', ConstantHelper::STATUS_ACTIVE)
+                ->orderBy('order', 'asc')
+                ->get();
+//                ->paginate($size, ['*'], 'page', $page);
+
+            return $this->_formatBaseResponse(200, $result, 'Success');
+
+        } catch (ValidationException $e) {
+            $errors = $e->validator->errors()->toArray();
+            return $this->_formatBaseResponse(400, $errors, 'Failed');
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

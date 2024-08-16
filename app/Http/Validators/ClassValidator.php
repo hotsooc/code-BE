@@ -25,4 +25,13 @@ class ClassValidator
 
         return Validator::make($requestData, $commonRules);
     }
+
+    public function validateGetAllShortClass($requestData): \Illuminate\Contracts\Validation\Validator
+    {
+        $commonRules = [
+            'language' => 'required|string|in:en,vi'
+        ];
+
+        return Validator::make($requestData, $commonRules);
+    }
 }
