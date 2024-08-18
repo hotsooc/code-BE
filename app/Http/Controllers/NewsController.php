@@ -48,9 +48,9 @@ class NewsController extends Controller
 
             $columns = ['ba.id', 'ba.news_category_id', 'ba.slug', 'ba.read_time', 'ba.image', 'ba.order', 'ba.status', 'ba.created_at', 'ba.updated_at', 'ba.created_by', 'ba.updated_by'];
             if ($language === 'vi') {
-                $columns = array_merge($columns, ['ba.vi_title as title', 'ba.vi_description as description']);
+                $columns = array_merge($columns, ['ba.vi_title as title','ba.vi_content as content', 'ba.vi_description as description']);
             } else {
-                $columns = array_merge($columns, ['ba.en_title as title', 'ba.en_description as description']);
+                $columns = array_merge($columns, ['ba.en_title as title','ba.en_content as content', 'ba.en_description as description']);
             }
 
 
@@ -92,9 +92,9 @@ class NewsController extends Controller
 
             $columns = ['ba.id', 'ba.news_category_id', 'ba.slug', 'ba.read_time', 'ba.image', 'ba.order', 'ba.status', 'ba.created_at', 'ba.updated_at', 'ba.created_by', 'ba.updated_by'];
             if ($language === 'vi') {
-                $columns = array_merge($columns, ['ba.vi_title as title', 'ba.vi_description as description']);
+                $columns = array_merge($columns, ['ba.vi_title as title','ba.vi_content as content', 'ba.vi_description as description']);
             } else {
-                $columns = array_merge($columns, ['ba.en_title as title', 'ba.en_description as description']);
+                $columns = array_merge($columns, ['ba.en_title as title','ba.en_content as content', 'ba.en_description as description']);
             }
 
             $result = DB::table('news as ba')
@@ -130,9 +130,9 @@ class NewsController extends Controller
 
             $columns = ['ba.id', 'ba.news_category_id', 'ba.slug', 'ba.read_time', 'ba.image', 'ba.order', 'ba.status', 'ba.created_at', 'ba.updated_at', 'ba.created_by', 'ba.updated_by'];
             if ($language === 'vi') {
-                $columns = array_merge($columns, ['ba.vi_title as title', 'ba.vi_description as description']);
+                $columns = array_merge($columns, ['ba.vi_title as title','ba.vi_content as content', 'ba.vi_description as description']);
             } else {
-                $columns = array_merge($columns, ['ba.en_title as title', 'ba.en_description as description']);
+                $columns = array_merge($columns, ['ba.en_title as title','ba.en_content as content', 'ba.en_description as description']);
             }
 
             $result = DB::table('news as ba')
