@@ -412,7 +412,9 @@ return [
 
             // Editor configuration
             'config' => [
-
+                "extraPlugins" => 'videodetector',
+                "extraAllowedContent" => 'iframe[*]',
+                'extraPlugins' => [ 'justify' ]
             ]
         ]
     ],
