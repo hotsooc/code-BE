@@ -14,4 +14,13 @@ class PageValidator
 
         return Validator::make($requestData, $commonRules);
     }
+    public function validateUrl($requestData): \Illuminate\Contracts\Validation\Validator
+    {
+        $commonRules = [
+            'language' => 'required|string|in:en,vi',
+            'url' => 'required|string',
+        ];
+
+        return Validator::make($requestData, $commonRules);
+    }
 }

@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 //page
 Route::get('page/all', [PageController::class, 'index']);
+Route::post('page/get-by-url', [PageController::class, 'getByUrl']);
 
 //section
 Route::post('section/get-by-page', [SectionController::class, 'index']);
