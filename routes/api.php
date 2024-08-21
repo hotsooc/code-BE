@@ -35,6 +35,7 @@ Route::post('page/get-by-url', [PageController::class, 'getByUrl']);
 
 //section
 Route::post('section/get-by-page', [SectionController::class, 'index']);
+Route::post('section/get-by-page-url', [SectionController::class, 'getByPageUrl']);
 
 //component
 Route::post('component/get-by-section', [ComponentController::class, 'index']);

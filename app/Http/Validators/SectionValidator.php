@@ -15,4 +15,14 @@ class SectionValidator
 
         return Validator::make($requestData, $commonRules);
     }
+
+    public function validateGetByPageUrl($requestData): \Illuminate\Contracts\Validation\Validator
+    {
+        $commonRules = [
+            'language' => 'required|string|in:en,vi',
+            'url' => 'required|string',
+        ];
+
+        return Validator::make($requestData, $commonRules);
+    }
 }
