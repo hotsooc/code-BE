@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\DocumentTypeController;
 use App\Http\Controllers\FeedbackController;
@@ -72,3 +73,6 @@ Route::post('document/get-by-id', [DocumentController::class, 'getById']);
 //lecture
 Route::post('lecture/get-by-lecture-type', [LectureController::class, 'getByLectureType']);
 Route::post('lecture/get-by-id', [LectureController::class, 'getById']);
+
+//config
+Route::get('config/website', [ConfigController::class, 'configWebsite']);

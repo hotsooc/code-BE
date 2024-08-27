@@ -25,6 +25,7 @@ Route::group([
     $router->resource('/news', ANewsController::class);
     $router->resource('/feedback', AFeedbackController::class);
     $router->resource('/lecturer', ALecturerController::class);
+    $router->resource('/config', ASystemConfigController::class);
 
 
 });
